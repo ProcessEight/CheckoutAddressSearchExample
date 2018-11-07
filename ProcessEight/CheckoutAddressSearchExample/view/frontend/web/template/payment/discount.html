@@ -1,0 +1,53 @@
+<!--
+/**
+ * ProcessEight
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future. If you wish to customize this module for your
+ * needs please contact ProcessEight for more information.
+ *
+ * @category    CheckoutAddressSearchExample
+ * @copyright   Copyright (c) 2017 ProcessEight
+ * @author      ProcessEight
+ *
+ */
+-->
+<div class="payment-option opc-payment-additional discount-code"
+     data-bind="">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" id="block-discount-heading" role="heading" aria-level="2">
+            <!-- ko i18n: 'Postcode Search'--><!-- /ko -->
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <form class="form form-discount" id="discount-form">
+            <div class="payment-option-inner">
+                <div class="field">
+                    <label class="label" for="discount-code">
+                        <span data-bind="i18n: 'Enter postcode'"></span>
+                    </label>
+                    <div class="control">
+                        <input class="input-text"
+                               type="text"
+                               id="discount-code"
+                               name="discount_code"
+                               data-validate="{'required-entry':true}"
+                               data-bind="value: couponCode, attr:{placeholder: $t('Enter postcode')} "/>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button class="action action-apply" type="submit" data-bind="'value': $t('Search'), click: apply">
+                        <span><!-- ko i18n: 'Search'--><!-- /ko --></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
