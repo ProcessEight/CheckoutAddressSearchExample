@@ -17,8 +17,10 @@ define([
     'ko',
     'uiComponent',
     'Magento_Checkout/js/model/quote',
-    'ProcessEight_CheckoutAddressSearchExample/js/action/set-coupon-code'
-], function ($, ko, Component, quote, setCouponCodeAction) {
+    'ProcessEight_CheckoutAddressSearchExample/js/action/set-coupon-code',
+    // 'ProcessEight_CheckoutAddressSearchExample/js/view/shipping-address/list-mixin'
+    'Magento_Checkout/js/view/shipping-address/list'
+], function ($, ko, Component, quote, setCouponCodeAction, shippingAddressList) {
     'use strict';
 
     var totals = quote.getTotals(),
@@ -46,7 +48,7 @@ define([
          */
         apply: function () {
             if (this.validate()) {
-                setCouponCodeAction(couponCode(), isApplied);
+                shippingAddressList().filterAddresses(couponCode());
             }
         },
 
